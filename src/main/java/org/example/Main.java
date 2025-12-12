@@ -1,8 +1,16 @@
 package org.example;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        Szyfr szyfr = new Szyfr("ab c", 1);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Wpisz tekst do zaszyfrowania: ");
+        String tekstJawny = scanner.nextLine();
+        System.out.println("Wpisz klucz do szyfrowania: ");
+        int klucz = scanner.nextInt();
+        Szyfr szyfr = new Szyfr(tekstJawny, klucz);
+        System.out.println("Zaszyfrowany tekst: ");
         System.out.println(szyfr.szyfrujTekst());
     }
 }
