@@ -3,22 +3,25 @@ package org.example;
 public class Szyfr {
     private String tekstJawny;
     private int klucz;
+    private final String alfabet = "abcdefghijklmnopqrstuvwxyz";
 
     public Szyfr(String tekstJawny, int klucz) {
         this.tekstJawny = tekstJawny;
-        this.klucz = klucz;
+        this.klucz = klucz % alfabet.length();
     }
 
     public String szyfrujTekst() {
-        final String alfabet = "abcdefghijklmnopqrstuvwxyz";
+        if (klucz < 0) {
+            klucz = alfabet.length() + klucz;
+        }
         StringBuilder zaszyfrowanyTekst = new StringBuilder();
-        for (int i = 0; i < tekstJawny.length(); i++) {
-            if (!alfabet.contains(String.valueOf(tekstJawny.charAt(i)))) {
-                zaszyfrowanyTekst.append(tekstJawny.charAt(i));
+        for (char znak : tekstJawny.toCharArray()) {
+            if (!alfabet.contains(String.valueOf(znak))) {
+                zaszyfrowanyTekst.append(znak);
                 continue;
             }
-            int indeksZnaku = alfabet.indexOf(tekstJawny.charAt(i));
-            zaszyfrowanyTekst.append(alfabet.charAt(indeksZnaku + klucz % alfabet.length()));
+            int indeksZnaku = alfabet.indexOf(znak);
+            zaszyfrowanyTekst.append(alfabet.charAt((indeksZnaku + klucz) % alfabet.length()));
         }
         return zaszyfrowanyTekst.toString();
     }
