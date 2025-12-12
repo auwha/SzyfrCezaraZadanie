@@ -1,6 +1,6 @@
 import org.example.Szyfr;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class TestyJednostkowe {
     @Test
@@ -9,7 +9,7 @@ public class TestyJednostkowe {
 
         String zaszyfrowany = szyfr.szyfrujTekst();
 
-        Assert.assertEquals("def", zaszyfrowany);
+        Assertions.assertEquals("def", zaszyfrowany);
     }
 
     @Test
@@ -18,7 +18,7 @@ public class TestyJednostkowe {
 
         String zaszyfrowany = szyfr.szyfrujTekst();
 
-        Assert.assertEquals("abc", zaszyfrowany);
+        Assertions.assertEquals("abc", zaszyfrowany);
     }
 
     @Test
@@ -27,7 +27,7 @@ public class TestyJednostkowe {
 
         String zaszyfrowany = szyfr.szyfrujTekst();
 
-        Assert.assertEquals("abc", zaszyfrowany);
+        Assertions.assertEquals("abc", zaszyfrowany);
     }
 
     @Test
@@ -36,7 +36,7 @@ public class TestyJednostkowe {
 
         String zaszyfrowany = szyfr.szyfrujTekst();
 
-        Assert.assertEquals("def", zaszyfrowany);
+        Assertions.assertEquals("def", zaszyfrowany);
     }
 
     @Test
@@ -45,6 +45,6 @@ public class TestyJednostkowe {
 
         String zaszyfrowany = szyfr.szyfrujTekst();
 
-        Assert.assertEquals("cd ef", zaszyfrowany);
+        Assertions.assertEquals("cd ef", zaszyfrowany);
     }
 }

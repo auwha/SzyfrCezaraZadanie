@@ -16,13 +16,11 @@ public class Szyfr {
 
         StringBuilder zaszyfrowanyTekst = new StringBuilder();
         for (char znak : tekstJawny.toCharArray()) {
-            if (!alfabet.contains(String.valueOf(znak))) {
-                zaszyfrowanyTekst.append(znak);
-                continue;
+            if (alfabet.contains(String.valueOf(znak))) {
+                int przesunietyIndeks = alfabet.indexOf(znak) + klucz;
+                znak = alfabet.charAt(przesunietyIndeks % alfabet.length());
             }
-            int indeksZnaku = alfabet.indexOf(znak);
-            char przesunietyZnak = alfabet.charAt((indeksZnaku + klucz) % alfabet.length());
-            zaszyfrowanyTekst.append(przesunietyZnak);
+            zaszyfrowanyTekst.append(znak);
         }
         return zaszyfrowanyTekst.toString();
     }
