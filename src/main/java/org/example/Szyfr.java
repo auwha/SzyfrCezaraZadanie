@@ -11,9 +11,9 @@ public class Szyfr {
     }
 
     public String szyfrujTekst() {
-        if (klucz < 0) {
-            klucz = alfabet.length() + klucz;
-        }
+        if (klucz < 0)
+            klucz += alfabet.length();
+
         StringBuilder zaszyfrowanyTekst = new StringBuilder();
         for (char znak : tekstJawny.toCharArray()) {
             if (!alfabet.contains(String.valueOf(znak))) {
@@ -21,7 +21,8 @@ public class Szyfr {
                 continue;
             }
             int indeksZnaku = alfabet.indexOf(znak);
-            zaszyfrowanyTekst.append(alfabet.charAt((indeksZnaku + klucz) % alfabet.length()));
+            char przesunietyZnak = alfabet.charAt((indeksZnaku + klucz) % alfabet.length());
+            zaszyfrowanyTekst.append(przesunietyZnak);
         }
         return zaszyfrowanyTekst.toString();
     }
